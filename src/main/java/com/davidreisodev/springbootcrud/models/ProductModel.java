@@ -35,16 +35,16 @@ public class ProductModel implements Serializable{
         this.idProduct = idProduct;
     }
     public String getName() {
-        return name;
+        return productName;
     }
     public void setName(String name) {
-        this.name = name;
+        this.productName = name;
     }
     public BigDecimal getValue() {
-        return value;
+        return productValue;
     }
     public void setValue(BigDecimal value) {
-        this.value = value;
+        this.productValue = value;
     }
 
     
