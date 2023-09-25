@@ -20,7 +20,7 @@ public class ProductController {
     @Autowired
     ProductRepository productRepository;
 
-    @PostMapping("/add_prod")
+    @PostMapping("/addprod")
     public ResponseEntity<ProductModel> saveProduct(@RequestBody @Valid ProductModel product) {
         var productModel = new ProductModel();
         BeanUtils.copyProperties(product,productModel);
