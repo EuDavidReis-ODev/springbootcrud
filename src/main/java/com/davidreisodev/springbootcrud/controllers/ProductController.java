@@ -30,6 +30,8 @@ import jakarta.validation.Valid;
 @RestController
 public class ProductController {
     
+    private static final String PRODUCT_NOT_FOUND = "Produto não encontrado.";
+    private static final String PRODUCT_REMOVED = "Produto removido com sucesso.";
     @Autowired
     ProductRepository productRepository;
 
@@ -58,7 +60,7 @@ public class ProductController {
         Optional<ProductModel> product = productRepository.findById(id);
         
         if(product.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(PRODUCT_NOT_FOUND);
         }
         product.get().add(linkTo(methodOn(ProductController.class).getAllProducts()).withRel("Lista de Produtos"));
 
@@ -70,7 +72,7 @@ public class ProductController {
         Optional<ProductModel> productModel = productRepository.findById(id);
         
         if(productModel.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(PRODUCT_NOT_FOUND);
         }
 
         var newProductModel = productModel.get();
@@ -83,11 +85,11 @@ public class ProductController {
         Optional<ProductModel> product = productRepository.findById(id);
         
         if(product.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(PRODUCT_NOT_FOUND);
         }
 
         productRepository.delete(product.get());
-        return ResponseEntity.status(HttpStatus.OK).body("Produto removido com sucesso.");
+        return ResponseEntity.status(HttpStatus.OK).body(PRODUCT_REMOVED);
     }
 
 }
