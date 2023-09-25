@@ -23,8 +23,10 @@ public class ProductModel implements Serializable{
     private String productName;
     @Column(nullable = false)
     private BigDecimal productValue;
+    @Column(nullable = false, length = 250)
+    private String productDescription;
 
-
+    
     public static long getSerialversionuid() {
         return serialVersionUID;
     }
@@ -34,18 +36,25 @@ public class ProductModel implements Serializable{
     public void setIdProduct(UUID idProduct) {
         this.idProduct = idProduct;
     }
-    public String getName() {
+    public String getProductName() {
         return productName;
     }
-    public void setName(String name) {
-        this.productName = name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
-    public BigDecimal getValue() {
+    public BigDecimal getProductValue() {
         return productValue;
     }
-    public void setValue(BigDecimal value) {
-        this.productValue = value;
+    public void setProductValue(BigDecimal productValue) {
+        this.productValue = productValue;
+    }
+    public String getProductDescription() {
+        return productDescription;
+    }
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
     }
 
     
+
 }
