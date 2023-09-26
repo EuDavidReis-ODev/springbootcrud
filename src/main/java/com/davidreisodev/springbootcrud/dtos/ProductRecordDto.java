@@ -1,4 +1,4 @@
-package com.davidreisodev.springbootcrud.dto;
+package com.davidreisodev.springbootcrud.dtos;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;   
